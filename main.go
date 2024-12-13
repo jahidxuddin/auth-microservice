@@ -1,7 +1,6 @@
 package main
 
-import "fmt"
-
 func main() {
-	fmt.Println("Hello, World!")
+	apiServer := NewApiServer(8080)
+	apiServer.Start()
 }
