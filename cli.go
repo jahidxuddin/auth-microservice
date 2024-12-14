@@ -4,6 +4,8 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"os/exec"
+	"runtime"
 	"strings"
 )
 
@@ -20,6 +22,8 @@ func PromptForConfig() (string, string, error) {
 		return "", "", err
 	}
 
+	clearTerminal()
+
 	return jwtSecret, dbHost, nil
 }
 
@@ -30,4 +34,16 @@ func readInput() (string, error) {
 		return "", err
 	}
 	return strings.TrimSpace(input), nil
+}
+
+func clearTerminal() {
+	var cmd *exec.Cmd
+	switch runtime.GOOS {
+	case "windows":
+		cmd = exec.Command("cmd", "/c", "cls")
+	default:
+		cmd = exec.Command("clear") 
+	}
+	cmd.Stdout = os.Stdout
+	cmd.Run()
 }
