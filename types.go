@@ -3,12 +3,13 @@ package main
 import "context"
 
 type Database struct {
-	dbClient *DBClient
+	instance *DBClient
 	ctx      context.Context
 }
 
 type AuthService struct {
 	db Database
+	jwtSecret string
 }
 
 type ApiServer struct {

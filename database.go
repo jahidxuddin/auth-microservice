@@ -4,6 +4,8 @@ import (
 	"auth-microservice/ent"
 	"context"
 	"log"
+
+	_ "github.com/go-sql-driver/mysql"
 )
 
 type DBClient struct {
@@ -23,7 +25,7 @@ func NewDatabase(dataSourceName string) *Database {
 	ctx := context.Background()
 
 	return &Database{
-		dbClient: db,
+		instance: db,
 		ctx: ctx,
 	}
 }

@@ -68,13 +68,13 @@ func (s *ApiServer) loginHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err = s.authService.login(creds)
+	token, err := s.authService.login(creds)
 	if err != nil {
     http.Error(w, err.Error(), http.StatusInternalServerError)
     return
   }
 
-	response := map[string]string{"message": "Login successful"}
+	response := map[string]string{"message": "Login successful", "token": token}
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(response)
 }
