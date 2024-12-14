@@ -71,12 +71,12 @@ Once the auth-microservice is running, you can call its endpoints to perform use
 
 ### Available Endpoints
 1. **POST /api/v1/login**
-- **Description**: Authenticates a user with the provided credentials (username and password).
+- **Description**: Authenticates a user with the provided credentials (email and password).
 - **Request body**:
 
 ```json
 {
-  "username": "user123",
+  "email": "user123",
   "password": "password123"
 }
 ```
@@ -90,12 +90,12 @@ Once the auth-microservice is running, you can call its endpoints to perform use
 ```
 
 2. **POST /api/v1/register**
-- **Description**: Registers a new user with the provided credentials (username, password).
+- **Description**: Registers a new user with the provided credentials (email, password).
 - **Request body**:
 
 ```json
 {
-  "username": "newuser",
+  "email": "newuser",
   "password": "newpassword123"
 }
 ```
