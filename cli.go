@@ -9,22 +9,28 @@ import (
 	"strings"
 )
 
-func PromptForConfig() (string, string, error) {
+func PromptForConfig() (string, string, string, error) {
+	fmt.Print("Enter Port: ")
+	port, err := readInput()
+	if err != nil {
+		return "", "", "", err
+	}
+
 	fmt.Print("Enter JWT Secret: ")
 	jwtSecret, err := readInput()
 	if err != nil {
-		return "", "", err
+		return "", "", "", err
 	}
 
 	fmt.Print("Enter Data Source Name: ")
 	dbHost, err := readInput()
 	if err != nil {
-		return "", "", err
+		return "", "", "", err
 	}
 
 	clearTerminal()
 
-	return jwtSecret, dbHost, nil
+	return port, jwtSecret, dbHost, nil
 }
 
 func readInput() (string, error) {
