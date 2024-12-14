@@ -1,15 +1,12 @@
 # auth-microservice
 
-## Table of Contents
+## Installation Steps
 
 1. [Install Go](#1-install-go)
 2. [Clone the Project](#2-clone-the-project)
 3. [Build the Project](#3-build-the-project)
 4. [Generate JWT Secret](#4-generate-jwt-secret)
 5. [Format the Data Source Name (DSN)](#5-format-the-data-source-name-dsn)
-6. [License](#license)
-
-## Installation Steps
 
 ### 1. Install Go
 
@@ -67,6 +64,47 @@ Example:
 
 ```bash
 user:secret@tcp(127.0.0.1:3306)/mydatabase
+```
+
+## Calling the Endpoints
+Once the auth-microservice is running, you can call its endpoints to perform user authentication and related tasks.
+
+### Available Endpoints
+1. **POST /api/v1/login**
+- **Description**: Authenticates a user with the provided credentials (username and password).
+- **Request body**:
+
+```json
+{
+  "username": "user123",
+  "password": "password123"
+}
+```
+- **Response**:
+
+```json
+{
+  "message": "Login successful",
+  "token": "..."
+}
+```
+
+2. **POST /api/v1/register**
+- **Description**: Registers a new user with the provided credentials (username, password).
+- **Request body**:
+
+```json
+{
+  "username": "newuser",
+  "password": "newpassword123"
+}
+```
+- **Response**:
+
+```json
+{
+  "message": "User successfully registered"
+}
 ```
 
 ## License
