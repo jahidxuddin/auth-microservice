@@ -76,7 +76,7 @@ Once the auth-microservice is running, you can call its endpoints to perform use
 
 ```json
 {
-  "email": "user123",
+  "email": "john.doe@example.com",
   "password": "password123"
 }
 ```
@@ -95,7 +95,7 @@ Once the auth-microservice is running, you can call its endpoints to perform use
 
 ```json
 {
-  "email": "newuser",
+  "email": "john.doe@example.com",
   "password": "newpassword123"
 }
 ```
